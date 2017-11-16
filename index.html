@@ -13,6 +13,17 @@
   <link rel="stylesheet" type="text/css" href="css/demo.css" />
   <link rel="stylesheet" type="text/css" href="css/component.css" />
   <script src="js/modernizr.custom.js"></script>
+  <style>
+    .card-name {
+      font-weight: 700!important;
+    }
+    .card-date, .card-age {
+      font-size: 0.6rem;
+    }
+    .card-age-number {
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -49,7 +60,11 @@
       <li>
         <figure>
           <img src="${victim.img}" alt="${victim.name}" />
-          <figcaption><h3>${victim.name}</h3></figcaption>
+          <figcaption>
+            <p class="card-date">${victim.fecha}</p>
+            <h3 class="card-name">${victim.name}</h3>
+            <p class="card-age">Edad: <span class="card-age-number">${victim.age}</span></p>
+          </figcaption>
         </figure>
       </li>`
 
@@ -58,7 +73,7 @@
         <figure>
           <figcaption>
             <h3>${victim.name}</h3>
-            <h4>${victim.place}, ${victim.fecha}</h4>
+            <h4>${victim.place}</h4>
             <p>${victim.story}</p>
           </figcaption>
           <img src="${victim.img}" alt="${victim.name}" />
@@ -66,7 +81,8 @@
       </li>`
 
     for (let i = 0; i < 20; i++) {
-      $(card({ img: `/img/thumb/${Math.floor(Math.random() * (6 - 1 + 1)) + 1}.png`, name: 'Víctima' })).appendTo(grid)
+      $(card({ age: 54, img: `https://www.elcorteingles.es/sgfm/SGFM/contents/images/uploads/2017/09/59ae500ed883fd1a2e911c65.jpg`, name: 'Ramona Muñoz Martínez', fecha: '12/10/2015' })).appendTo(grid)
+      // $(card({ img: `/img/thumb/${Math.floor(Math.random() * (6 - 1 + 1)) + 1}.png`, name: 'Víctima' })).appendTo(grid)
       $(slider({ img: `/img/large/${Math.floor(Math.random() * (6 - 1 + 1)) + 1}.png`, name: 'Víctima' })).appendTo(slideshow)
     }
 

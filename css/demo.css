@@ -21,7 +21,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 body {
     font-family: 'Guardian Sans', 'Guardian Sans Web', 'Lato', Calibri, 'Roboto', Arial, sans-serif;
 		color: #b90021;
-		background-color: rgb(17, 4, 4);
+		background-color: #cacbcc;
 }
 
 a {
@@ -38,7 +38,8 @@ a:hover {
 	width: 90%;
 	max-width: 69em;
 	margin: 0 auto;
-	padding: 1.5rem;
+	padding: .5rem 1.5rem;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 
 .container > header h1 {
@@ -47,6 +48,7 @@ a:hover {
 	margin: 0 0 0.6em 0;
 	float: left;
 	font-weight: 300;
+	color: rgba(0, 0, 0, 0.9);
 }
 
 .container > header > span {
