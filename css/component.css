@@ -55,7 +55,7 @@
 }
 
 .grid figure {
-	padding: 15px;
+	padding: 25px;
 	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
@@ -90,7 +90,7 @@
 }
 
 .slideshow-open .slideshow {
-	opacity: 1;
+	opacity: 0.95;
 	visibility: visible;
 	-webkit-transition: opacity 0.5s;
 	transition: opacity 0.5s;

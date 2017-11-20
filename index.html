@@ -18,10 +18,13 @@
       font-weight: 700!important;
     }
     .card-date, .card-age {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
     .card-age-number {
       font-weight: 600;
+    }
+    .story {
+      padding: 1em 0;
     }
   </style>
 </head>
@@ -53,15 +56,316 @@
   <script src="js/classie.js"></script>
   <script src="js/cbpGridGallery.js"></script>
   <script>
+    const victims = [
+        {
+          "date": "15/07/2017",
+          "name": "Mª Carmen Carricondo Reche",
+          "age": 66,
+          "place": "Huéscar",
+          "pdf": "2017_huescar.pdf",
+          "face": "",
+          "img": "2017_huescar.jpg"
+        },
+        {
+          "date": "13/06/2017",
+          "name": "Encarnación García Machado",
+          "age": 55,
+          "place": "Las Gabias",
+          "pdf": "2017_gabias.pdf",
+          "face": "",
+          "img": "2017_gabias.jpg"
+        },
+        {
+          "date": "29/11/2016",
+          "name": "Sara C. Y.",
+          "age": 34,
+          "place": "Granada",
+          "pdf": "2016_granada.pdf",
+          "face": "2016_granada_careto.jpg",
+          "img": "2016_granada.jpg"
+        },
+        {
+          "date": "03/12/2015",
+          "name": "Ramona Muñoz Martínez",
+          "age": 58,
+          "place": "Baza",
+          "pdf": "2015_baza.pdf",
+          "face": "2015_baza_careto.jpg",
+          "img": "2015_baza.jpg"
+        },
+        {
+          "date": "17/08/2015",
+          "name": "Otilia Márquez Hidalgo",
+          "age": 68,
+          "place": "Armilla",
+          "pdf": "2015_armilla.pdf",
+          "face": "",
+          "img": "2015_armilla.jpg"
+        },
+        {
+          "date": "04/09/2014",
+          "name": "Antonia Latorre Bujaldón",
+          "age": 62,
+          "place": "Cúllar Baza",
+          "pdf": "2014_cullar.pdf",
+          "face": "2014_cullar_careto.jpg",
+          "img": "2014_cullar.jpg"
+        },
+        {
+          "date": "07/06/2014",
+          "name": "Mª Araceli Morales Barros",
+          "age": 60,
+          "place": "Motril",
+          "pdf": "2014_motril.pdf",
+          "face": "2014_motril_careto.jpg",
+          "img": "2014_motril.jpg"
+        },
+        {
+          "date": "09/07/2013",
+          "name": "Ángela María Chamorro Ruiz del Valle",
+          "age": 29,
+          "place": "Granada",
+          "pdf": "2013_granada.pdf",
+          "face": "",
+          "img": "2013_granada.jpg"
+        },
+        {
+          "date": "19/07/2011",
+          "name": "Mónica Carrión Remacho",
+          "age": 18,
+          "place": "Otura",
+          "pdf": "2011_otura.pdf",
+          "face": "2011_otura_careto.jpg",
+          "img": "2011_otura.jpg"
+        },
+        {
+          "date": "21/03/2011",
+          "name": "Natividad Gallo Carpio",
+          "age": 61,
+          "place": "Granada",
+          "pdf": "2011_granada.pdf",
+          "face": "",
+          "img": "2011_granada.jpg",
+          "story": ""
+        },
+        {
+          "date": "13/01/2011",
+          "name": "Weili Wu",
+          "age": 29,
+          "place": "Granada",
+          "pdf": "2011_granada_2.pdf",
+          "face": "",
+          "img": "2011_granada_2.jpg",
+          "story": "X.L., de 32 años, chino como Weili, acabó con su vida con una losa de mármol en el almacén de la tienda de chucherías que regentaban junto desde hacía dos años en la calle Trajano de la capital. No había denuncias previas."
+        },
+        {
+          "date": "11/10/2010",
+          "name": "Fatiha el Khatiri",
+          "age": 37,
+          "place": "Alhama de Granada",
+          "pdf": "2010_alhama.pdf",
+          "face": "2010_alhama_careto.jpg",
+          "img": "2010_alhama.jpg",
+          "story": "Fatiha se iba. Había decidido que no soportaba más su vida junto a Mohamed, marroquí como ella, y se mudaba ese mismo día a una VPO junto a sus tres hijos. Pero él no lo permitió. La mató a golpes en la cabeza cuando los niños se fueron al colegio. Tras intentar suicidarse sin éxito, Mohamed llamó a la Guardia Civil para confesar su crimen machista."
+        },
+        {
+          "date": "04/04/2010",
+          "name": "Trinidad Rodríguez",
+          "age": 45,
+          "place": "Granada",
+          "pdf": "2010_granada.pdf",
+          "face": "",
+          "img": "2010_granada.jpg",
+          "story": "Trinidad vivía sola en el Carril de la Lona, en el Albaicín, hasta que se descubrió su cadáver, que presentaba un fuerte golpe en la cabeza."
+        },
+        {
+          "date": "01/07/2010",
+          "name": "Rafaela Rueda Contreras",
+          "age": 42,
+          "place": "Pinos Puente",
+          "pdf": "2010_pinos.pdf",
+          "face": "",
+          "img": "2010_pinos.jpg",
+          "story": "J.H.F., de 67 años, había sido ya denunciado dos veces por maltrato y tenía una orden de alejamiento cuando asesinó a Rafaela de un golpe de azada en la cabeza tras encontrársela en la Calle Real de Pinos Puente cuando ella volvía de hacer unas compras. El agresor fue detenido por la Guardia Civil tras huir en moto."
+        },
+        {
+          "date": "09/04/2009",
+          "name": "María F. J.",
+          "age": 73,
+          "place": "Píñar",
+          "pdf": "2009_pinar.pdf",
+          "face": "",
+          "img": "2009_pinar.jpg",
+          "story": "Obsesionado con que María quería envenenarle, Miguel, un jubilado de Píñar, mató a María de tres disparos, dos en la cabeza y uno en el pecho. El asesino sufría una psicosis obsesiva por la que se encontraba en tratamiento psicológico a causa de los celos que sentía de su mujer, aunque se negaba a medicarse. No existían denuncias previas por parte de la víctima."
+        },
+        {
+          "date": "27/02/2009",
+          "name": "Concepción Peñate",
+          "age": 55,
+          "place": "Lanjarón",
+          "pdf": "2009_lanjaron.pdf",
+          "face": "",
+          "img": "2009_lanjaron.jpg",
+          "story": "Vecina de Lanjarón, Concepción Peñate fue asesinada cerca en la A-44, cerca de El Padul, donde su marido la atropelló dos veces. Se habían divorciado algunos meses, y Concepción había acudido a pedir ayuda a los servicios sociales del municipio, aunque nunca quiso denunciar a quien finalmente la mató."
+        },
+        {
+          "date": "14/10/2008",
+          "name": "Rosario González Rico",
+          "age": 41,
+          "place": "Motril",
+          "pdf": "2008_motril.pdf",
+          "face": "",
+          "img": "2008_motril.jpg",
+          "story": "Manuel Herrera, Guardia Civil retirado, tenía 51 años cuando mató a su segunda mujer, Rosario González, y se suicidó después en un cortijo de Motril. Ella trabajaba como celadora en un ambulatario de El Ejido. Según declaró la Guardia Civil a <strong>IDEAL</strong>, los dos presentaban señales de violencia. La mató usando una radial. Los dos cuerpos los encontró el padre de Herrera, desangrados en la cama."
+        },
+        {
+          "date": "01/10/2008",
+          "name": "Encarnación García Alcázar",
+          "age": 33,
+          "place": "Granada",
+          "pdf": "2008_granada.pdf",
+          "face": "2008_granada_careto.jpg",
+          "img": "2008_granada.jpg",
+          "story": "Encarnación García era una joven militar, de 33 años, que trabajaba en el acuartelamiento Cervantes. La encontraron muerta en su piso de La Chana, asesinada por su novio, también cabo primero del Ejército, que apareció muerto en el puente de Dúrcal. A él le encontró primero la Guardia Civil de Tráfico, y cuando fueron a avisar a Encarnación de lo sucedido descubrieron su cuerpo sin vida en un piso de la calle Doctor García de Castro."
+        },
+        {
+          "date": "12/10/2006",
+          "name": "Beatriz Ordóñez",
+          "age": 38,
+          "place": "Vélez de Benaudalla",
+          "pdf": "2006_velez.pdf",
+          "face": "",
+          "img": "2006_velez.jpg"
+        },
+        {
+          "date": "05/09/2006",
+          "name": "Francisca Fernández",
+          "age": 76,
+          "place": "Granada",
+          "pdf": "2006_granada.pdf",
+          "face": "",
+          "img": "2006_granada.jpg"
+        },
+        {
+          "date": "01/09/2006",
+          "name": "Lourdes Rodríguez",
+          "age": 40,
+          "place": "Granada",
+          "pdf": "2006_granada_2.pdf",
+          "face": "2006_granada_2_careto.jpg",
+          "img": "2006_granada_2.jpg"
+        },
+        {
+          "date": "02/08/2006",
+          "name": "María Dolores González Villena",
+          "age": 49,
+          "place": "Salobreña",
+          "pdf": "2006_salobrena.pdf",
+          "face": "",
+          "img": "2006_salobrena.jpg"
+        },
+        {
+          "date": "01/01/2006",
+          "name": "Pilar Pacheco Valverde",
+          "age": 39,
+          "place": "Algarinejo",
+          "pdf": "2006_algarinejo.pdf",
+          "face": "",
+          "img": "2006_algarinejo.jpg"
+        },
+        {
+          "date": "02/03/2005",
+          "name": "Carmen C. A.",
+          "age": 83,
+          "place": "Algarinejo",
+          "pdf": "2005_algarinejo.pdf",
+          "face": "",
+          "img": "2005_algarinejo.jpg"
+        },
+        {
+          "date": "11/06/2004",
+          "name": "B.J.V.J",
+          "age": 42,
+          "place": "Granada",
+          "pdf": "2004_granada.pdf",
+          "face": "",
+          "img": "2004_granada.jpg"
+        },
+        {
+          "date": "10/06/2004",
+          "name": "Casimira Martínez Valero",
+          "age": 64,
+          "place": "Huéscar",
+          "pdf": "2004_huescar.pdf",
+          "face": "",
+          "img": "2004_huescar.jpg"
+        },
+        {
+          "date": "10/06/2004",
+          "name": "Encarnación Rubio",
+          "age": 46,
+          "place": "Cúllar Vega",
+          "pdf": "2004_cullar.pdf",
+          "face": "2004_cullar_careto.jpg",
+          "img": "2004_cullar.jpg"
+        },
+        {
+          "date": "23/03/2004",
+          "name": "Ana López Ariza",
+          "age": 39,
+          "place": "Guadix",
+          "pdf": "2004_guadix.pdf",
+          "face": "2004_guadix_careto.jpg",
+          "img": "2004_guadix.jpg"
+        },
+        {
+          "date": "28/01/2003",
+          "name": "Encarnación Sánchez Trujillo",
+          "age": 80,
+          "place": "Pinos Puente",
+          "pdf": "2003_pinos.pdf",
+          "face": "",
+          "img": "2003_pinos.jpg"
+        },
+        {
+          "date": "13/07/2002",
+          "name": "Evangelina Rodríguez",
+          "age": 74,
+          "place": "Salobreña",
+          "pdf": "2002_salobrena.pdf",
+          "face": "",
+          "img": "2002_salobrena.jpg"
+        },
+        {
+          "date": "17/03/2001",
+          "name": "Rosario Aguilera Yébenes",
+          "age": 66,
+          "place": "Churriana de la Vega",
+          "pdf": "2001_churriana.pdf",
+          "face": "2001_churriana_careto.jpg",
+          "img": "2001_churriana.jpg"
+        },
+        {
+          "date": "17/12/1997",
+          "name": "Ana Orantes",
+          "age": 60,
+          "place": "Cúllar Vega",
+          "pdf": "1997_cullar.pdf",
+          "face": "",
+          "img": "1997_cullar.jpg"
+        }
+      ]
+  </script>
+  <script>
 
     const grid = $('.grid')[0], slideshow = $('.slideshow ul')[0]
 
     const card = victim => `
       <li>
         <figure>
-          <img src="${victim.img}" alt="${victim.name}" />
+          <img src="/img/${victim.face !== "" ? victim.face : 'careto.png' }" alt="${victim.name}" />
           <figcaption>
-            <p class="card-date">${victim.fecha}</p>
+            <p class="card-date">${victim.date}</p>
             <h3 class="card-name">${victim.name}</h3>
             <p class="card-age">Edad: <span class="card-age-number">${victim.age}</span></p>
           </figcaption>
@@ -73,18 +377,20 @@
         <figure>
           <figcaption>
             <h3>${victim.name}</h3>
-            <h4>${victim.place}</h4>
-            <p>${victim.story}</p>
+            <h4>${victim.place}, ${victim.date}</h4>
+            <p class="story">${victim.story}</p>
+            <p>Lea <a href="/pdf/${victim.pdf}" type="application/pdf">la noticia que publicó <strong>IDEAL</strong></a> sobre este crimen machista.</p>
           </figcaption>
-          <img src="${victim.img}" alt="${victim.name}" />
+          ${victim.img !== "" ? '<img src="/img/' + victim.img + '" alt="' + victim.name + '" />'  : null}
         </figure>
       </li>`
 
-    for (let i = 0; i < 20; i++) {
-      $(card({ age: 54, img: `https://www.elcorteingles.es/sgfm/SGFM/contents/images/uploads/2017/09/59ae500ed883fd1a2e911c65.jpg`, name: 'Ramona Muñoz Martínez', fecha: '12/10/2015' })).appendTo(grid)
-      // $(card({ img: `/img/thumb/${Math.floor(Math.random() * (6 - 1 + 1)) + 1}.png`, name: 'Víctima' })).appendTo(grid)
-      $(slider({ img: `/img/large/${Math.floor(Math.random() * (6 - 1 + 1)) + 1}.png`, name: 'Víctima' })).appendTo(slideshow)
-    }
+    
+    
+    victims.forEach(victim => {
+      $(card(victim)).appendTo(grid)
+      $(slider(victim)).appendTo(slideshow)
+    })
 
     new CBPGridGallery(document.getElementById('grid-gallery'))
 
