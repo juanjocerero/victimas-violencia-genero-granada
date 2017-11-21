@@ -26,12 +26,15 @@
     .story {
       padding: 1em 0;
     }
+    h4 {
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="clearfix">
-      <h1>Víctimas de violencia de género en Granada</h1>
+      <h1 style="margin-top:.4em;">Conoce a las 32 víctimas de la violencia machista</h1>
       <nav></nav>
     </header>
     <div id="grid-gallery" class="grid-gallery">
@@ -55,6 +58,8 @@
   <script src="js/masonry.pkgd.min.js"></script>
   <script src="js/classie.js"></script>
   <script src="js/cbpGridGallery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
   <script>
     const victims = [
         {
@@ -64,7 +69,8 @@
           "place": "Huéscar",
           "pdf": "2017_huescar.pdf",
           "face": "",
-          "img": "2017_huescar.jpg"
+          "img": "2017_huescar.jpg",
+          "story": "Como ocurre demasiado a menudo, Mª Carmen nunca había presentado una denuncia contra su asesino, de 71 años, con quien vivía en Huéscar. La mató a cuchilladas y después se ahorcó. Una de las hijas del matrimonio encontró los cadáveres. El Ayuntamiento decretó un día de luto oficial."
         },
         {
           "date": "13/06/2017",
@@ -73,7 +79,8 @@
           "place": "Las Gabias",
           "pdf": "2017_gabias.pdf",
           "face": "",
-          "img": "2017_gabias.jpg"
+          "img": "2017_gabias.jpg",
+          "story": "Encarnación murió de un disparo en el pecho que le asestó su pareja con un arma del calibre 9. Llevaban cuatro años viviendo juntos. El hijo de la víctima, de 26 años y que sufría una discapacidad psíquica, presenció en directo el crimen, tras lo cual salió a la calle pasadas las cuatro de la madrugada para que alguien le ayudara a llamar a la policía. El asesino confesó el crimen y se entregó a la Guardia Civil pasadas las seis de la mañana del día siguiente. No constaban denuncias previas."
         },
         {
           "date": "29/11/2016",
@@ -82,7 +89,8 @@
           "place": "Granada",
           "pdf": "2016_granada.pdf",
           "face": "2016_granada_careto.jpg",
-          "img": "2016_granada.jpg"
+          "img": "2016_granada.jpg",
+          "story": "Tres hijos huérfanos dejó Sara, que regentaba un bar en la barriada granadina de Almanjáyar hasta que recibió un disparo que le dañó el bazo poco después de las diez de la noche. Había pasado por la UCI, aunque los profesionales sanitarios no lograron salvar su vida."
         },
         {
           "date": "03/12/2015",
@@ -91,7 +99,8 @@
           "place": "Baza",
           "pdf": "2015_baza.pdf",
           "face": "2015_baza_careto.jpg",
-          "img": "2015_baza.jpg"
+          "img": "2015_baza.jpg",
+          "story": "Ella tenía un cuchillo clavado y él un disparo de escopeta. Regentaban juntos una joyería en Baza hasta que él decidió asesinarla y suicidarse después. Él estaba en tratamiento por depresión."
         },
         {
           "date": "17/08/2015",
@@ -100,7 +109,8 @@
           "place": "Armilla",
           "pdf": "2015_armilla.pdf",
           "face": "",
-          "img": "2015_armilla.jpg"
+          "img": "2015_armilla.jpg",
+          "story": "Los celos y las discusiones eran la costumbre en la vida de la pareja. Llevaban cuatro décadas casados cuando su marido, Juan de Dios H., de 72 años, llamó un día a la Guardia Civil de Armilla para informar de que había pasado algo muy serio en su casa y se iba a suicidar. Cuando los agentes llegaron encontraron a Otilia muerta con dos hachazos en el cuello. El asesino no tenía antecedentes penales ni había sido denunciado nunca por la víctima. "
         },
         {
           "date": "04/09/2014",
@@ -109,7 +119,8 @@
           "place": "Cúllar Baza",
           "pdf": "2014_cullar.pdf",
           "face": "2014_cullar_careto.jpg",
-          "img": "2014_cullar.jpg"
+          "img": "2014_cullar.jpg",
+          "story": "Mario 'El Margenero' disparó a su mujer, Antonia Latorre, con una escopeta de caza en la vivienda que compartían en Cúllar. Antonia consiguió sobrevivir hasta llegar al Hospital de Baza pero murió poco después a pesar de los esfuerzos del personal médico. El asesino intentó suicidarse disparándose dos veces, una de ellas en el cuello, pero no murió. Fue trasladado al mismo hospital, donde quedó a disposición de la policía."
         },
         {
           "date": "07/06/2014",
@@ -118,7 +129,8 @@
           "place": "Motril",
           "pdf": "2014_motril.pdf",
           "face": "2014_motril_careto.jpg",
-          "img": "2014_motril.jpg"
+          "img": "2014_motril.jpg",
+          "story": "A golpes de martillo la emprendió con ella el marido de Araceli. Consiguió sobrevivir y llevaba 17 días ingresada en el hospital, donde parecía recuperarse favorablemente de la brutal agresión. Había sufrido violencia durante largo tiempo, según declararon a <strong>IDEAL</strong> vecinos del matrimonio."
         },
         {
           "date": "09/07/2013",
@@ -127,7 +139,8 @@
           "place": "Granada",
           "pdf": "2013_granada.pdf",
           "face": "",
-          "img": "2013_granada.jpg"
+          "img": "2013_granada.jpg",
+          "story": "Óscar C.T., de 37 años, confesó haber matado a Ángela en el Hospital de Motril, adonde fue trasladado tras ser encontrado en Almuñécar borracho y herido, posiblemente por haber tratado de suicidarse sin éxito. Ambos vivían en el Zaidín, donde la Policía Nacional encontró a Ángela con un cuchillo clavado en el corazón, un pañuelo anudado al cuello y semidesnuda. Su agresor le había dado más de 15 puñaladas y la había intentado estrangular. Ella intentó defenderse sin éxito."
         },
         {
           "date": "19/07/2011",
@@ -136,7 +149,8 @@
           "place": "Otura",
           "pdf": "2011_otura.pdf",
           "face": "2011_otura_careto.jpg",
-          "img": "2011_otura.jpg"
+          "img": "2011_otura.jpg",
+          "story": "19 años tenía el asesino confeso de Mónica, de sólo 18. Él trabajaba con el padre de ella en un bar de Otura. Tras dos años de relación, le propinó una brutal paliza que acabó con su vida. El asesino tuvo la sangre fría suficiente como para llevarla hasta el Hospital Clínico para que fuese atendida alegando que les habían atracado en el pueblo, aunque había ingresado ya cadáver."
         },
         {
           "date": "21/03/2011",
@@ -146,7 +160,7 @@
           "pdf": "2011_granada.pdf",
           "face": "",
           "img": "2011_granada.jpg",
-          "story": ""
+          "story": "A las nueve menos cuarto de la mañana, policía nacional jubilado, Cosme M.C. entró en un bar al que habitualmente acuden a desayunar otros compañeros y pidió que avisaran a una patrulla porque había matado a su mujer, Natividad, usando dos armas blancas. El matrimonio no había sido feliz ni fácil, y se habían llegado a divorciar unos años antes, aunque la víctima nunca había denunciado maltrato por parte de su asesino."
         },
         {
           "date": "13/01/2011",
@@ -206,7 +220,7 @@
           "pdf": "2009_lanjaron.pdf",
           "face": "",
           "img": "2009_lanjaron.jpg",
-          "story": "Vecina de Lanjarón, Concepción Peñate fue asesinada cerca en la A-44, cerca de El Padul, donde su marido la atropelló dos veces. Se habían divorciado algunos meses, y Concepción había acudido a pedir ayuda a los servicios sociales del municipio, aunque nunca quiso denunciar a quien finalmente la mató."
+          "story": "Vecina de Lanjarón, Concepción Peñate fue asesinada cerca en la A-44, cerca de El Padul, donde su marido la atropelló dos veces. Se habían divorciado algunos meses atrás, y Concepción había acudido a pedir ayuda a los servicios sociales del municipio, aunque nunca quiso denunciar a quien finalmente la mató."
         },
         {
           "date": "14/10/2008",
@@ -235,7 +249,8 @@
           "place": "Vélez de Benaudalla",
           "pdf": "2006_velez.pdf",
           "face": "",
-          "img": "2006_velez.jpg"
+          "img": "2006_velez.jpg",
+          "story": "El cadáver de Beatriz Ordóñez apareció en un canal de riego de Vélez de Benaudalla. Ella tenía 40 años cuando la mató José Miguel Hernández, que fue condenado a 15 años. La sentencia probó que el hombre la golpeó, le quitó la ropa y la tiró por una acequia a una altura de unos 50 metros. José Miguel y Beatriz, señala la sentencia, se conocían desde hacía tiempo y habían mantenido «fluctuantes relaciones sentimentales»."
         },
         {
           "date": "05/09/2006",
@@ -244,7 +259,8 @@
           "place": "Granada",
           "pdf": "2006_granada.pdf",
           "face": "",
-          "img": "2006_granada.jpg"
+          "img": "2006_granada.jpg",
+          "story": "Francisca Fernández tenía 76 años cuando su marido le asestó las tres puñaladas en el tórax que le costaron la vida en su casa de la calle Bailén del Zaidín. El hombre se suicidó de un navajazo en el pecho."
         },
         {
           "date": "01/09/2006",
@@ -253,7 +269,8 @@
           "place": "Granada",
           "pdf": "2006_granada_2.pdf",
           "face": "2006_granada_2_careto.jpg",
-          "img": "2006_granada_2.jpg"
+          "img": "2006_granada_2.jpg",
+          "story": "Lourdes Rodríguez, de 40 años, dormía la siesta cuando su marido, un taxista que estaba de baja por depresión, le disparó un tiro mortal en la cabeza y luego se suicidó. Los tres hijos de la pareja, a los que el padre había mandado a comprar tabaco, descubrieron los cadáveres al volver a su casa en la calle Brasil del Zaidín."
         },
         {
           "date": "02/08/2006",
@@ -262,7 +279,8 @@
           "place": "Salobreña",
           "pdf": "2006_salobrena.pdf",
           "face": "",
-          "img": "2006_salobrena.jpg"
+          "img": "2006_salobrena.jpg",
+          "story": "María Dolores González Villena tenía 49 años cuando murió asesinada por su marido, Amancio Rufino Fernández, de 37 años, que le asestó 174 puñaladas. El hombre, que sufría crisis de esquizofrenia por las que había sido internado en varias ocasiones, se realizó 90 cortes con un cuchillo jamonero  en las muñecas, el cuello, el pecho y el abdomen que acabaron con su vida."
         },
         {
           "date": "01/01/2006",
@@ -271,7 +289,8 @@
           "place": "Algarinejo",
           "pdf": "2006_algarinejo.pdf",
           "face": "",
-          "img": "2006_algarinejo.jpg"
+          "img": "2006_algarinejo.jpg",
+          "story": "Pilar Pacheco, de 39 años, recogía aceitunas en un cortijo con su nueva pareja cuando recibió dos tiros por la espalda que disparó su exmarido, al que había denunciado por amenazas. Había pedido una orden de alejamiento que nunca llegó."
         },
         {
           "date": "02/03/2005",
@@ -280,7 +299,8 @@
           "place": "Algarinejo",
           "pdf": "2005_algarinejo.pdf",
           "face": "",
-          "img": "2005_algarinejo.jpg"
+          "img": "2005_algarinejo.jpg",
+          "story": "Carmen, vecina de Algarinejo de 84 años, enferma de alzheimer, murió asfixiada por su marido, J.E.J, de 83 años, que después de cometer el crimen se suicidó bebiendo ácido y cortándose las venas."
         },
         {
           "date": "11/06/2004",
@@ -289,7 +309,8 @@
           "place": "Granada",
           "pdf": "2004_granada.pdf",
           "face": "",
-          "img": "2004_granada.jpg"
+          "img": "",
+          "story": "Detrás de las siglas B.J.V.J se esconde una mujer colombiana, de 42 años, que murió asfixiada en su piso de la calle Sancho Panza de Granada. Horas después se encontró a su pareja ahorcado en un paraje de Córdoba."
         },
         {
           "date": "10/06/2004",
@@ -298,7 +319,8 @@
           "place": "Huéscar",
           "pdf": "2004_huescar.pdf",
           "face": "",
-          "img": "2004_huescar.jpg"
+          "img": "",
+          "story": "Santiago Martínez, de 69 años de edad, acabó con la vida de su mujer, Casimira Martínez Valero, de 64, asestándole dos puñaladas, una en la espalda y otra en el cuello, en el domicilio conyugal que compartían en Huéscar. Ella se había negado a retirar una denuncia por maltrato. Fue condenado a 25 años."
         },
         {
           "date": "10/06/2004",
@@ -307,7 +329,8 @@
           "place": "Cúllar Vega",
           "pdf": "2004_cullar.pdf",
           "face": "2004_cullar_careto.jpg",
-          "img": "2004_cullar.jpg"
+          "img": "2004_cullar.jpg",
+          "story": "El exmarido de Encarnación Rubio, sobre el que pesaba una orden de alejamiento, la atropelló hasta tres veces con su coche cuando ella limpiaba en una calle de Cúllar Vega. Francisco Jiménez Uceda fue condenado a 26 años de prisión. Murió en el centro penitenciario de Albolote en 2006."
         },
         {
           "date": "23/03/2004",
@@ -316,7 +339,8 @@
           "place": "Guadix",
           "pdf": "2004_guadix.pdf",
           "face": "2004_guadix_careto.jpg",
-          "img": "2004_guadix.jpg"
+          "img": "2004_guadix.jpg",
+          "story": "Ana López Ariza, accitana de 39 años, murió a causa de las puñaladas que le propinó su compañero sentimental, Francisco Martínez, de 45 años. El asesino fue condenado a 19 años de cárcel."
         },
         {
           "date": "28/01/2003",
@@ -325,7 +349,8 @@
           "place": "Pinos Puente",
           "pdf": "2003_pinos.pdf",
           "face": "",
-          "img": "2003_pinos.jpg"
+          "img": "2003_pinos.jpg",
+          "story": "Encarmación Sánchez Trujillo, de 80 años y enferma de alzheimer, murió de un disparo a manos de su marido en Pinos Puente. Tras matarla, éste, Diego Recio Lafuente, de 81, se suicidó."
         },
         {
           "date": "13/07/2002",
@@ -334,7 +359,8 @@
           "place": "Salobreña",
           "pdf": "2002_salobrena.pdf",
           "face": "",
-          "img": "2002_salobrena.jpg"
+          "img": "2002_salobrena.jpg",
+          "story": "Evangelina Rodríguez, de 74 años, murió de un hachazo en la cabeza a manos de su marido Andrés Palomares, de 78. La mujer llevaba 40 años sufriendo malos tratos."
         },
         {
           "date": "17/03/2001",
@@ -343,7 +369,8 @@
           "place": "Churriana de la Vega",
           "pdf": "2001_churriana.pdf",
           "face": "2001_churriana_careto.jpg",
-          "img": "2001_churriana.jpg"
+          "img": "2001_churriana.jpg",
+          "story": "Rosario Aguilera Yébenes, de 66 años, falleció en su vivienda de Maracena tras recibir un golpe en la cabeza seguido de varias puñaladas que le produjo su marido, Francisco José Guzmán. de 72 años. El hombre, impedido para andar, se presentó en Traumatología, donde confesó el crimen. Apareció ahorcado en el módulo de enfermería de la prisión de Albolote apenas un mes después de cometer el asesinato."
         },
         {
           "date": "17/12/1997",
@@ -351,19 +378,29 @@
           "age": 60,
           "place": "Cúllar Vega",
           "pdf": "1997_cullar.pdf",
-          "face": "",
-          "img": "1997_cullar.jpg"
+          "face": "1997_cullar_careto.jpg",
+          "img": "1997_cullar.jpg",
+          "story": "El asesinato de la granadina Ana Orantes, de 60 años, a la que su marido roció con gasolina y prendió fuego, marcó un antes y un después en la conciencia social ante la violencia machista. La mujer participó en un programa de Canal Sur una semana antes relatando las vejaciones a las que era sometida. José Parejo fue condenado a 17 años de prisión. Murió en la cárcel de Albolote de un infarto de miocardio en 2004."
         }
       ]
   </script>
   <script>
+
+    victims.map(v => {
+      v.moment = moment(v.date, 'DD/MM/YYYY')
+    })
+
+    const places = victims.map(v => v.pdf.split('.')[0].split('_')[1])
+
+    console.log(_.uniq(places))
+    console.log(victims.map(v => +v.age))
 
     const grid = $('.grid')[0], slideshow = $('.slideshow ul')[0]
 
     const card = victim => `
       <li>
         <figure>
-          <img src="/img/${victim.face !== "" ? victim.face : 'careto.png' }" alt="${victim.name}" />
+          <img src="/img/${victim.face !== "" ? victim.face : 'careto' + (Math.floor(Math.random() * 4) + 1) + '.png' }" alt="${victim.name}" />
           <figcaption>
             <p class="card-date">${victim.date}</p>
             <h3 class="card-name">${victim.name}</h3>
@@ -381,13 +418,13 @@
             <p class="story">${victim.story}</p>
             <p>Lea <a href="/pdf/${victim.pdf}" type="application/pdf">la noticia que publicó <strong>IDEAL</strong></a> sobre este crimen machista.</p>
           </figcaption>
-          ${victim.img !== "" ? '<img src="/img/' + victim.img + '" alt="' + victim.name + '" />'  : null}
+          ${victim.img !== "" ? '<img src="/img/' + victim.img + '" alt="' + victim.name + '" />'  : ''}
         </figure>
       </li>`
 
     
     
-    victims.forEach(victim => {
+    _.orderBy(victims, 'moment').forEach(victim => {
       $(card(victim)).appendTo(grid)
       $(slider(victim)).appendTo(slideshow)
     })
