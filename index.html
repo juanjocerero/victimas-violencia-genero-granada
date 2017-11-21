@@ -390,11 +390,6 @@
       v.moment = moment(v.date, 'DD/MM/YYYY')
     })
 
-    const places = victims.map(v => v.pdf.split('.')[0].split('_')[1])
-
-    console.log(_.uniq(places))
-    console.log(victims.map(v => +v.age))
-
     const grid = $('.grid')[0], slideshow = $('.slideshow ul')[0]
 
     const card = victim => `
