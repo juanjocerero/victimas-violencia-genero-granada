@@ -4,15 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Víctimas de violencia de género en Granada</title>
-  <title>Víctimas</title>
+  <title>Víctimas de violencia de género en Granada desde 1997</title>
   <meta name="description" content="Víctimas de violencia de género" />
   <meta name="keywords" content="victimas, violencia, genero, asesinadas, maltrato, granada" />
   <meta name="author" content="Juanjo Cerero" />
-  <link rel="shortcut icon" href="../favicon.ico">
-  <link rel="stylesheet" type="text/css" href="css/demo.css" />
-  <link rel="stylesheet" type="text/css" href="css/component.css" />
-  <script src="js/modernizr.custom.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/proyectos/victimas-violencia-genero-desde-1997/demo.css" />
+  <link rel="stylesheet" type="text/css" href="css/proyectos/victimas-violencia-genero-desde-1997/component.css" />
+  <script src="js/proyectos/victimas-violencia-genero-desde-1997/modernizr.custom.js"></script>
   <style>
     .card-name {
       font-weight: 700!important;
@@ -34,7 +32,7 @@
 <body>
   <div class="container">
     <header class="clearfix">
-      <h1 style="margin-top:.4em;">Conoce a las 32 víctimas de la violencia machista</h1>
+      <h1 style="margin-top:.4em;">Conoce a las 32 víctimas de la violencia machista en Granada</h1>
       <nav></nav>
     </header>
     <div id="grid-gallery" class="grid-gallery">
@@ -54,10 +52,10 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="js/imagesloaded.pkgd.min.js"></script>
-  <script src="js/masonry.pkgd.min.js"></script>
-  <script src="js/classie.js"></script>
-  <script src="js/cbpGridGallery.js"></script>
+  <script src="js/proyectos/victimas-violencia-genero-desde-1997/imagesloaded.pkgd.min.js"></script>
+  <script src="js/proyectos/victimas-violencia-genero-desde-1997/masonry.pkgd.min.js"></script>
+  <script src="js/proyectos/victimas-violencia-genero-desde-1997/classie.js"></script>
+  <script src="js/proyectos/victimas-violencia-genero-desde-1997/cbpGridGallery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
   <script>
@@ -300,7 +298,7 @@
           "pdf": "2005_algarinejo.pdf",
           "face": "",
           "img": "2005_algarinejo.jpg",
-          "story": "Carmen, vecina de Algarinejo de 84 años, enferma de alzheimer, murió asfixiada por su marido, J.E.J, de 83 años, que después de cometer el crimen se suicidó bebiendo ácido y cortándose las venas."
+          "story": "Carmen, vecina de Algarinejo de 84 años, enferma de alzhéimer, murió asfixiada por su marido, J.E.J, de 83 años, que después de cometer el crimen se suicidó bebiendo ácido y cortándose las venas."
         },
         {
           "date": "11/06/2004",
@@ -350,7 +348,7 @@
           "pdf": "2003_pinos.pdf",
           "face": "",
           "img": "2003_pinos.jpg",
-          "story": "Encarmación Sánchez Trujillo, de 80 años y enferma de alzheimer, murió de un disparo a manos de su marido en Pinos Puente. Tras matarla, éste, Diego Recio Lafuente, de 81, se suicidó."
+          "story": "Encarmación Sánchez Trujillo, de 80 años y enferma de alzhéimer, murió de un disparo a manos de su marido en Pinos Puente. Tras matarla, éste, Diego Recio Lafuente, de 81, se suicidó."
         },
         {
           "date": "13/07/2002",
@@ -400,7 +398,7 @@
     const card = victim => `
       <li>
         <figure>
-          <img src="/img/${victim.face !== "" ? victim.face : 'careto' + (Math.floor(Math.random() * 4) + 1) + '.png' }" alt="${victim.name}" />
+          <img src="/img/proyectos/victimas-violencia-genero-desde-1997/${victim.face !== "" ? victim.face : 'careto' + (Math.floor(Math.random() * 4) + 1) + '.png' }" alt="${victim.name}" />
           <figcaption>
             <p class="card-date">${victim.date}</p>
             <h3 class="card-name">${victim.name}</h3>
@@ -416,9 +414,9 @@
             <h3>${victim.name}</h3>
             <h4>${victim.place}, ${victim.date}</h4>
             <p class="story">${victim.story}</p>
-            <p>Lea <a class="pdf-link" href="/pdf/${victim.pdf}">la noticia que publicó <strong>IDEAL</strong></a> sobre este crimen machista.</p>
+            <p>Lea <a class="pdf-link" href="data/proyectos/victimas-violencia-genero-desde-1997/${victim.pdf}">la noticia que publicó <strong>IDEAL</strong></a> sobre este crimen machista.</p>
           </figcaption>
-          ${victim.img !== "" ? '<img src="/img/' + victim.img + '" alt="' + victim.name + '" />'  : ''}
+          ${victim.img !== "" ? '<img src="/img/proyectos/victimas-violencia-genero-desde-1997/' + victim.img + '" alt="' + victim.name + '" />'  : ''}
         </figure>
       </li>`
 

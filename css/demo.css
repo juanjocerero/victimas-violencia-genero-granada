@@ -2,11 +2,11 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @font-face {
 	font-family: 'bpicons';
-	src:url('../fonts/bpicons/bpicons.eot');
-	src:url('../fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/bpicons/bpicons.woff') format('woff'),
-		url('../fonts/bpicons/bpicons.ttf') format('truetype'),
-		url('../fonts/bpicons/bpicons.svg#bpicons') format('svg');
+	src:url('../../fonts/bpicons/bpicons.eot');
+	src:url('../../fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/bpicons/bpicons.woff') format('woff'),
+		url('../../fonts/bpicons/bpicons.ttf') format('truetype'),
+		url('../../fonts/bpicons/bpicons.svg#bpicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 } /* Made with http://icomoon.io/ */
@@ -21,7 +21,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 body {
     font-family: 'Guardian Sans', 'Guardian Sans Web', 'Lato', Calibri, 'Roboto', Arial, sans-serif;
 		color: #b90021;
-		background-color: #cacbcc;
+		background-color: #cacbcc!important;
 }
 
 a {
@@ -40,6 +40,7 @@ a:hover {
 	margin: 0 auto;
 	padding: .5rem 1.5rem;
 	border-bottom: 1px solid rgba(0,0,0,0.5);
+	background-color: #cacbcc!important;
 }
 
 .container > header h1 {
